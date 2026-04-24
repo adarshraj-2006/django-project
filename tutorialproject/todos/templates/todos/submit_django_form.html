@@ -1,0 +1,5 @@
+<form method='POST' action='% url 'submitdjango' %>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">send post</button>
+</form>

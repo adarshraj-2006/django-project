@@ -12,4 +12,7 @@ urlpatterns = [
     path('special',views.special_view,name='special view '),
     path('postexample',views.post_example,name='post example'),
     path('submit',views.submit_example,name='submit example'),
+    path('submitdjango',views.submit_django_form,name='submit django form'),
+    path('templateview',views.template_view,name='template view'),
+    path('todos',views.todos,name='todos'),
 ]

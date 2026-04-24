@@ -1,3 +1,28 @@
 from django.db import models
 
 # Create your models here.
+
+class person(models.Model):
+    name=models.CharField(max_length=100)
+    age=models.IntegerField(max_length=3)
+    job=models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.name} is {self.age} years old and works as {self.job}"
+
+class PriorityChoices(models.IntegerChoices):
+    LOW = 1,'Low'
+    MEDIUIM = 2,'Medium'
+    HIGH =3,'High'
+
+
+class Todo(models.Model):
+    title =models.CharField(max_length=100)
+    description =models.CharField(max_length=500)
+    done =models.BooleanField(default=False)
+    deadline =models.DateField(null=True,blank=True)
+    priority =models.IntegerField(choices=PriorityChoices.choices,null=True,blank=True)
+
+    owner =models.ForeignKey(person,on_delete=models.CASCADE,related_name='protected_todos',blank=True,null=True)
+    def __str__(self):
+        return f"{self.id} . {self.title}"

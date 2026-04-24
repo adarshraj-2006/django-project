@@ -1,0 +1,30 @@
+{% extends 'todos/base.html' %}
+
+{% block title %}Templating{% endblock %}
+
+{% block content %}
+
+<h1>{{ name }}</h1>
+<h1>{{ age }}</h1>
+<h1>{{ skills }}</h1>
+<h1>{{ job }}</h1>
+
+<ul>
+    {% for skill in skills %}
+    <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+{% if skills|length > 3 %}
+    <p>{{ name }} has more than 3 skills</p>
+
+{% elif 'drug Dealing' in skills %}
+    <p>{{ name }} is also a drug dealer</p>
+
+{% elif 'Teaching' in skills %}
+    <p>{{name}} is also a teacher</p>
+{% else %}
+    <p>{{name}} does not have many skills</p>
+
+{% endif %}
+{% endblock %}
