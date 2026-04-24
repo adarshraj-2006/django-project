@@ -70,3 +70,14 @@ def todos(request):
 def person_details(request,person_id):
     person=person.objects.filter(id =person_id).first()
     return render('todos/person_details.html',{'person':person})
+
+def delete_todo(request,todo_id):
+    todo =Todo.objects.filter(id=todo_id).first()
+
+    todo.delete()
+    return HttpResponse('Todo deleted successfully !')
+
+def toggle_todo_done(request,todo_id):
+    todo=Todo.objects.filter(id=todo_id).first()
+    todo.done=not todo.done
+    todo.save()

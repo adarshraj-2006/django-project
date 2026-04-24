@@ -1,1 +1,20 @@
 {% extends 'todos/base.html' %}
+{% block title %}{{person.name}}Details{%endblock %}
+
+{% block content %}
+<h1>f" Hello {{person.name}} ! ,further Details "</h1>
+<h3>Your todos</h3>
+<ul>
+    {% for todo in person.todos.all %}
+    <li>
+        <b>{{ todo.id }} . {{todo.title}}:</b> {Done: {{todo.done}}} (Owned by :{{todo.owner.name}}) </li>
+
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}
+
+

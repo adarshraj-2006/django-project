@@ -15,4 +15,7 @@ urlpatterns = [
     path('submitdjango',views.submit_django_form,name='submit django form'),
     path('templateview',views.template_view,name='template view'),
     path('todos',views.todos,name='todos'),
+    path('person/<int:person_id>',views.person_details,name='person details'),
+    path('deletetodo/<int:todo_id>',views.delete_todo,name='delete todo'),
+    path('toggletodo/<int:todo_id>',views.toggle_todo_done,name='toggle todo done'),
 ]
